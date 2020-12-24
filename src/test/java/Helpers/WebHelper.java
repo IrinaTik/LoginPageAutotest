@@ -1,7 +1,11 @@
+package Helpers;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -27,12 +31,6 @@ public class WebHelper {
         wd.quit();
     }
 
-    public void doLogin(String login, String pass) {
-        type(By.id("username"), login);
-        type(By.id("password"), pass);
-        click(By.id("login_button"));
-    }
-
     public void type (By locator, String text) {
         wd.findElement(locator).sendKeys(text);
     }
@@ -45,7 +43,16 @@ public class WebHelper {
         wd.navigate().refresh();
     }
 
+    public WebElement findWebElement(By locator) {
+        return wd.findElement(locator);
+    }
+
     public List<WebElement> findWebElements(By locator) {
         return wd.findElements(locator);
+    }
+
+    public void waitForElement(By locator) {
+        WebDriverWait wait = new WebDriverWait(wd, 10);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 }

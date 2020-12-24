@@ -1,5 +1,8 @@
+package LoginTests;
 
-import org.testng.annotations.AfterMethod;
+import Helpers.WebHelper;
+import Pages.LoginPage;
+import Pages.ProfilePage;
 import org.testng.annotations.AfterSuite;
 
 public class TestBase {
@@ -9,10 +12,8 @@ public class TestBase {
     protected static String username = "tester";
     protected static String password = "K35G3U";
 
-    @AfterMethod
-    public void doReloadPage() {
-        wh.pageReload();
-    }
+    LoginPage loginPage = new LoginPage(wh);
+    ProfilePage profilePage = new ProfilePage(wh);
 
     @AfterSuite
     public void tearDown() {

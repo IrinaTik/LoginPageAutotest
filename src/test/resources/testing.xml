@@ -3,18 +3,8 @@
 <suite name="Suite1" verbose="1" >
     <test name="LoginForm" preserve-order="true">
         <classes>
-            <class name="LoginFormFillingTests">
-            <methods>
-                <include name="testWrongPassword" />
-                <include name="testWrongLogin" />
-            </methods>
-            </class>
-            <class name="LoginLogoutActionsTests">
-                <methods>
-                    <include name="testLoginSuccess" />
-                    <include name="testLogoutSuccess" />
-                </methods>
-            </class>
+            <class name="LoginTests.LoginFormFillingTests" />
+            <class name="LoginTests.LoginLogoutActionsTests" />
         </classes>
     </test>
 </suite>
